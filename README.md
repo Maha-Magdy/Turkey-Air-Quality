@@ -17,9 +17,9 @@ A screenshot of the TURKEY'S AIR QUALITY is presented below:
 - Redux
 - VisualStudio Code, Git, & GitHub.
 
-<!-- ## Live Demo
+## Live Demo
 
-[Live Demo Link]( https://maha-magdy.github.io/egyptian-food-world/ ) -->
+[Live Demo Link]( https://sleepy-heyrovsky-10b9cc.netlify.app/ )
 
 ## Pre-requisites
 
