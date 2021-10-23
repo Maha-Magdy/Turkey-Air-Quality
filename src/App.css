@@ -2,37 +2,184 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* common style */
+.btn:focus {
+  box-shadow: unset !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #2d4573;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 5px;
+}
+
+/* common classes */
+.bg-main-color {
+  background-color: #4369b2;
+}
+
+.bg-green {
+  background-color: #9cd84e;
+}
+
+.bg-yellow {
+  background-color: #facf39;
+}
+
+.bg-orange {
+  background-color: #f99049;
+}
+
+.bg-red {
+  background-color: #f65e5f;
+}
+
+.fs-sm {
+  font-size: small;
+}
+
+/* Home page */
+.country-block {
+  background-color: #5589e3;
+}
+
+.country-block img {
+  max-width: 450px;
+}
+
+.selection-block select {
+  width: 50% !important;
+}
+
+.cities-block ul li {
+  cursor: pointer;
+}
+
+.cities-block ul li:hover {
+  background-color: #3b5e9c !important;
+}
+
+.cities-block ul li:nth-child(odd) {
+  background-color: #4369b0;
+}
+
+.cities-block ul li:nth-child(even) {
+  background-color: #3d62a5;
+}
+
+@media only screen and (max-width: 768px) {
+  .country-block img {
+    max-width: 150px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Loading */
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 
-.App-link {
-  color: #61dafb;
+/* City page */
+.city-information > div > div {
+  background-color: #4369b0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.city-information table.overview-table thead,
+.city-information table.overview-table tbody {
+  background-color: #3d62a5;
+}
+
+.weather-table thead th {
+  border: unset !important;
+}
+
+.city-information table thead th,
+.city-information table tbody td {
+  padding: 10px 25px;
+}
+
+.city-information table tbody td {
+  border-bottom: unset;
+}
+
+.weather-table img {
+  width: 30px;
+}
+
+.weather-table thead tr {
+  border-bottom: 1px solid white;
+}
+
+/* Loading */
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(24px, 0);
   }
 }
