@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+
 /* common style */
 .btn:focus {
   box-shadow: unset !important;
@@ -83,14 +84,29 @@
   }
 }
 
+/* Loading */
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
 /* City page */
-.city-information > div > div{
+.city-information > div > div {
   background-color: #4369b0;
 }
 
 .city-information table.overview-table thead,
 .city-information table.overview-table tbody {
   background-color: #3d62a5;
+}
+
+.weather-table thead th {
+  border: unset !important;
 }
 
 .city-information table thead th,
@@ -110,10 +126,6 @@
   border-bottom: 1px solid white;
 }
 
-.weather-table thead th {
-  border: unset !important;
-}
-
 /* Loading */
 .lds-ellipsis {
   display: inline-block;
@@ -121,51 +133,52 @@
   width: 80px;
   height: 80px;
 }
-.lds-ellipsis div {
-  position: absolute;
-  top: 33px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: #fff;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
-}
+
 .lds-ellipsis div:nth-child(1) {
   left: 8px;
   animation: lds-ellipsis1 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(2) {
   left: 8px;
   animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(3) {
   left: 32px;
   animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(4) {
   left: 56px;
   animation: lds-ellipsis3 0.6s infinite;
 }
+
 @keyframes lds-ellipsis1 {
   0% {
     transform: scale(0);
   }
+
   100% {
     transform: scale(1);
   }
 }
+
 @keyframes lds-ellipsis3 {
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(0);
   }
 }
+
 @keyframes lds-ellipsis2 {
   0% {
     transform: translate(0, 0);
   }
+
   100% {
     transform: translate(24px, 0);
   }
