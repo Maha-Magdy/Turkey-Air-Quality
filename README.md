@@ -5,8 +5,10 @@ A "TURKEY'S AIR QUALITY" is an application that can give information about the a
 
 A screenshot of the TURKEY'S AIR QUALITY is presented below:
 
-![screenshot](app_screenshot_1.png)
-![screenshot](app_screenshot_2.png)
+<p float="left">
+  <img alt="Home Page" style="border: 1px solid black; display: inline-block" src="./app_screenshot_1.png" width="45%">
+  <img alt="City Page" style="border: 1px solid black; display: inline-block" src="./app_screenshot_2.png" width="45%">
+ </p>
 
 ## Built With
 
