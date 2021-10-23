@@ -23,7 +23,7 @@ function Home() {
     if (Object.keys(states).length === 0) {
       axios
         .get(
-          'http://api.airvisual.com/v2/states?country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f',
+          'https://api.airvisual.com/v2/states?country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f',
         )
         .then((response) => {
           const { data } = response.data;
@@ -34,7 +34,7 @@ function Home() {
 
           axios
             .get(
-              `http://api.airvisual.com/v2/cities?state=${
+              `https://api.airvisual.com/v2/cities?state=${
                 Object.keys(states)[0]
               }&country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f`,
             )
@@ -44,7 +44,7 @@ function Home() {
 
               result.map((city) => {
                 axios(
-                  `http://api.airvisual.com/v2/city?city=${city}&state=${
+                  `https://api.airvisual.com/v2/city?city=${city}&state=${
                     Object.keys(states)[0]
                   }&country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f`,
                 ).then((response) => {
@@ -80,7 +80,7 @@ function Home() {
     if (Object.keys(states[e.target.value]).length === 0) {
       axios
         .get(
-          `http://api.airvisual.com/v2/cities?state=${e.target.value}&country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f`,
+          `https://api.airvisual.com/v2/cities?state=${e.target.value}&country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f`,
         )
         .then((response) => {
           const { data } = response.data;
@@ -88,7 +88,7 @@ function Home() {
 
           result.map((city) => {
             axios(
-              `http://api.airvisual.com/v2/city?city=${city}&state=${e.target.value}&country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f`,
+              `https://api.airvisual.com/v2/city?city=${city}&state=${e.target.value}&country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f`,
             ).then((response) => {
               dispatch(addCity(response.data.data));
               const citiesOfState = Object.entries(states[e.target.value]);
@@ -200,7 +200,7 @@ function Home() {
         <div></div>
       </div>
       <h5 className="text-white fw-light fst-italic">Sorry, it seems there&apos;s a problem in fetching the data from the server now.</h5>
-      <h5 className="text-white fw-light fst-italic">Please, try again later.</h5>
+      <h5 className="text-white fw-light fst-italic">Please wait a few minutes before you try again.</h5>
     </div>
   );
 }
