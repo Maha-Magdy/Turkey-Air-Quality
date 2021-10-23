@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home screen renders as expected 1`] = `
+<div
+  className="text-center p-5 my-5"
+>
+  <div
+    className="lds-ellipsis mb-3"
+  >
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+  <h5
+    className="text-white fw-light fst-italic"
+  >
+    Sorry, it seems there's a problem in fetching the data from the server now.
+  </h5>
+  <h5
+    className="text-white fw-light fst-italic"
+  >
+    Please, try again later.
+  </h5>
+</div>
+`;

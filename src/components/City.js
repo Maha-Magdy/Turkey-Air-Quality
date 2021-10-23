@@ -1,10 +1,13 @@
 /* eslint-disable consistent-return, react/jsx-one-expression-per-line */
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import flag from '../assets/images/turkey-flag.png';
 import WeatherIcons from './Weather_icons';
+import { urlLocation } from '../redux/urlLocation/urlLocation';
 
 const City = () => {
+  const dispatch = useDispatch();
+  dispatch(urlLocation('cityScreen'));
   const { state, id } = useParams();
   const states = useSelector((state) => state.homeReducer);
   const city = states[state][id];
@@ -86,8 +89,6 @@ const City = () => {
     }
   };
 
-  console.log('hereeeeeeeeeeeeeeeee', pollutionLevel(), id, state, city);
-  console.log('heeeeeeeeeeeeeeeeeeey', WeatherIcons[city.current.weather.ic]);
   return (
     <main className="container">
       <div className="d-flex justify-content-around align-items-center p-5 shadow-lg country-block mb-4">

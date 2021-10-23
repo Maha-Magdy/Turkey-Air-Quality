@@ -1,83 +1,105 @@
-/* eslint-disable array-callback-return, no-unused-vars, jsx-a11y/label-has-associated-control */
+/* eslint-disable array-callback-return, no-unused-vars, react/jsx-one-expression-per-line */
+/* eslint-disable jsx-a11y/label-has-associated-control, react/self-closing-comp */
 
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import * as moment from 'moment';
 import { addState, addCity } from '../redux/home/home';
 import flag from '../assets/images/turkey-flag.png';
+import { urlLocation } from '../redux/urlLocation/urlLocation';
 
 function Home() {
   const dispatch = useDispatch();
+  dispatch(urlLocation('homeScreen'));
   const states = useSelector((state) => state.homeReducer);
 
   const [cities, setCities] = useState([]);
 
+  const [lastUpdateDate, setLastUpdateDate] = useState([]);
+
   useEffect(() => {
-    axios
-      .get(
-        'http://api.airvisual.com/v2/states?country=Turkey&key=ff39af7c-ee16-4fcf-9d8e-e2b50b959742',
-      )
-      .then((response) => {
-        const { data } = response.data;
-        data.map((item) => {
-          dispatch(addState(item.state));
-          return item.state;
-        });
+    if (Object.keys(states).length === 0) {
+      axios
+        .get(
+          'http://api.airvisual.com/v2/states?country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f',
+        )
+        .then((response) => {
+          const { data } = response.data;
+          data.map((item) => {
+            dispatch(addState(item.state));
+            return item.state;
+          });
 
-        axios
-          .get(
-            `http://api.airvisual.com/v2/cities?state=${
-              Object.keys(states)[0]
-            }&country=Turkey&key=ff39af7c-ee16-4fcf-9d8e-e2b50b959742`,
-          )
-          .then((response) => {
-            const { data } = response.data;
-            const result = data.map((item) => item.city);
+          axios
+            .get(
+              `http://api.airvisual.com/v2/cities?state=${
+                Object.keys(states)[0]
+              }&country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f`,
+            )
+            .then((response) => {
+              const { data } = response.data;
+              const result = data.map((item) => item.city);
 
-            result.map((city) => {
-              axios(
-                `http://api.airvisual.com/v2/city?city=${city}&state=${
-                  Object.keys(states)[0]
-                }&country=Turkey&key=ff39af7c-ee16-4fcf-9d8e-e2b50b959742`,
-              ).then((response) => {
-                dispatch(addCity(response.data.data));
-                const statesName = Object.keys(states);
-                const citiesOfFirstState = Object.entries(
-                  states[statesName[0]],
-                );
-                setCities(citiesOfFirstState);
+              result.map((city) => {
+                axios(
+                  `http://api.airvisual.com/v2/city?city=${city}&state=${
+                    Object.keys(states)[0]
+                  }&country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f`,
+                ).then((response) => {
+                  dispatch(addCity(response.data.data));
+                  const statesName = Object.keys(states);
+                  const citiesOfFirstState = Object.entries(
+                    states[statesName[0]],
+                  );
+                  setCities(citiesOfFirstState);
+                });
               });
             });
-          });
-      });
+        });
+    } else {
+      const statesName = Object.keys(states);
+      const citiesOfFirstState = Object.entries(
+        states[statesName[0]],
+      );
+      setCities(citiesOfFirstState);
+    }
   }, []);
 
   useEffect(() => {
     cities.sort(
       (a, b) => b[1].current.pollution.aqius - a[1].current.pollution.aqius,
     );
+    if (cities.length !== 0) {
+      setLastUpdateDate(moment(cities[0][1].current.pollution.ts).format('hh:mm, MMM DD'));
+    }
   }, [cities]);
 
   const getCitiesOfState = (e) => {
-    axios
-      .get(
-        `http://api.airvisual.com/v2/cities?state=${e.target.value}&country=Turkey&key=ff39af7c-ee16-4fcf-9d8e-e2b50b959742`,
-      )
-      .then((response) => {
-        const { data } = response.data;
-        const result = data.map((item) => item.city);
+    if (Object.keys(states[e.target.value]).length === 0) {
+      axios
+        .get(
+          `http://api.airvisual.com/v2/cities?state=${e.target.value}&country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f`,
+        )
+        .then((response) => {
+          const { data } = response.data;
+          const result = data.map((item) => item.city);
 
-        result.map((city) => {
-          axios(
-            `http://api.airvisual.com/v2/city?city=${city}&state=${e.target.value}&country=Turkey&key=ff39af7c-ee16-4fcf-9d8e-e2b50b959742`,
-          ).then((response) => {
-            dispatch(addCity(response.data.data));
-            const citiesOfState = Object.entries(states[e.target.value]);
-            setCities(citiesOfState);
+          result.map((city) => {
+            axios(
+              `http://api.airvisual.com/v2/city?city=${city}&state=${e.target.value}&country=Turkey&key=e4e8766a-ad50-4757-b00a-3f8b0957c08f`,
+            ).then((response) => {
+              dispatch(addCity(response.data.data));
+              const citiesOfState = Object.entries(states[e.target.value]);
+              setCities(citiesOfState);
+            });
           });
         });
-      });
+    } else {
+      const citiesOfState = Object.entries(states[e.target.value]);
+      setCities(citiesOfState);
+    }
   };
 
   if (Object.keys(states).length !== 0) {
@@ -94,6 +116,7 @@ function Home() {
           <div className="px-2 text-center">
             <h2 className="text-white fw-normal fst-italic">TURKEY&apos;S</h2>
             <h2 className="text-white fw-normal fst-italic">AIR QUALITY</h2>
+            <p className="text-white fs-sm">LAST UPDATE: {lastUpdateDate}</p>
           </div>
         </div>
 
@@ -168,7 +191,18 @@ function Home() {
       </main>
     );
   }
-  return 'Something went wrong!';
+  return (
+    <div className="text-center p-5 my-5">
+      <div className="lds-ellipsis mb-3">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <h5 className="text-white fw-light fst-italic">Sorry, it seems there&apos;s a problem in fetching the data from the server now.</h5>
+      <h5 className="text-white fw-light fst-italic">Please, try again later.</h5>
+    </div>
+  );
 }
 
 export default Home;

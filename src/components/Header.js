@@ -1,12 +1,16 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const { pathname } = window.location;
+  // const { pathname } = window.location;
+  const path = useSelector((state) => state.urlLocationReducer);
+
   return (
     <div className="container">
       <header className="d-flex flex-wrap align-items-center justify-content-between justify-content-md-between py-4">
-        {pathname !== '/' && (
-          <button type="button" className="btn px-0">
+        {path === 'cityScreen' && (
+
+          <Link to="/" className="btn px-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20px"
@@ -22,7 +26,7 @@ const Header = () => {
                 />
               </g>
             </svg>
-          </button>
+          </Link>
         )}
 
         <Link to="/" className="text-decoration-none">
