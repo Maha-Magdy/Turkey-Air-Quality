@@ -19,7 +19,7 @@ A screenshot of the TURKEY'S AIR QUALITY is presented below:
 
 ## Live Demo
 
-[Live Demo Link]( https://sleepy-heyrovsky-10b9cc.netlify.app/ )
+[Live Demo Link](https://sleepy-heyrovsky-10b9cc.netlify.app/)
 
 ## Video Demo
 [Video Demo Link]( https://www.loom.com/share/bcb598dbea0745d8a8aac496ce30c78d )
