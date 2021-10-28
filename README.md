@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# TURKEY'S AIR QUALITY
+## About
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A "TURKEY'S AIR QUALITY" is an application that can give information about the air quality, health recommended pieces of advice based on the quality of the air, and the weather for any city in Turkey. It is a Single Page App (SPA). This application was built with React and Redux.
 
-## Available Scripts
+A screenshot of the TURKEY'S AIR QUALITY is presented below:
 
-In the project directory, you can run:
+<p float="left" style="vertical-align: top;">
+  <img alt="Home Page" style="border: 1px solid black; display: inline-block" src="./app_screenshot_1.png" width="45%">
+  <img alt="City Page" style="border: 1px solid black; display: inline-block" src="./app_screenshot_2.png" width="45%">
+ </p>
 
-### `yarn start`
+## Built With
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- HTML, CSS, JavaScript.
+- React.
+- Redux
+- VisualStudio Code, Git, & GitHub.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Live Demo
 
-### `yarn test`
+[Live Demo Link](https://sleepy-heyrovsky-10b9cc.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Video Demo
+[Video Demo Link]( https://www.loom.com/share/bcb598dbea0745d8a8aac496ce30c78d )
 
-### `yarn build`
+## Pre-requisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- NodeJs
+- Git
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run this project, you only need a computer with a browser installed, and follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+1. In your terminal, in the folder of your preference, type the following bash command to clone this repository:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+git clone https://github.com/Maha-Magdy/Turkey-Air-Quality.git
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Now that you have already cloned the repo run the following commands to get the project up and running:
+```sh
+cd Turkey-Air-Quality
+npm install
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. To run all the test cases, type on the terminal:
+```sh
+npm run test
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Author
 
-## Learn More
+👤 **Maha Magdy**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- GitHub: [Maha-Magdy](https://github.com/Maha-Magdy)
+- Twitter: [@Maha_M_Abdelaal](https://twitter.com/Maha_M_Abdelaal)
+- LinkedIn: [Maha Magdy](https://www.linkedin.com/in/maha-magdy-abdelaal/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🤝 Contributing
 
-### Code Splitting
+Contributions, issues, and feature requests are welcome!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Feel free to check the [issues page](https://github.com/Maha-Magdy/Turkey-Air-Quality/issues).
 
-### Analyzing the Bundle Size
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[AirVisual API](https://www.iqair.com/commercial/air-quality-monitors/airvisual-platform/api)
 
-### Making a Progressive Web App
+[Design Guidelines](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs))
+## Show your support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Give a ⭐️ if you like this project!
 
-### Advanced Configuration
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is [MIT](./LICENSE) licensed.
