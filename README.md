@@ -68,6 +68,7 @@ Feel free to check the [issues page](https://github.com/Maha-Magdy/Turkey-Air-Qu
 ## Acknowledgments
 
 [AirVisual API](https://www.iqair.com/commercial/air-quality-monitors/airvisual-platform/api)
+
 [Design Guidelines](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs))
 ## Show your support
 
