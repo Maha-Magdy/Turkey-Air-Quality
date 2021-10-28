@@ -45,6 +45,12 @@ cd Turkey-Air-Quality
 npm install
 npm start
 ```
+
+-To run all the test cases, type on the terminal:
+```sh
+npm run test
+```
+
 ## Author
 
 👤 **Maha Magdy**
