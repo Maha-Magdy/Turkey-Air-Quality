@@ -46,7 +46,7 @@ npm install
 npm start
 ```
 
--To run all the test cases, type on the terminal:
+3. To run all the test cases, type on the terminal:
 ```sh
 npm run test
 ```
